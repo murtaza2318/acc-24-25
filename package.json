@@ -1,0 +1,23 @@
+{
+  "name": "modern-accounting-system",
+  "version": "1.0.0",
+  "description": "Modern web-based accounting system",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "build": "cd client && npm run build && cd ../server && npm run build",
+    "start": "cd server && npm start",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "clean": "rm -rf server/dist client/dist server/node_modules client/node_modules node_modules",
+    "reset": "npm run clean && npm run install:all",
+    "setup": "npm run install:all && echo 'Setup complete! Run npm run dev to start the application.'"
+  },
+  "keywords": ["accounting", "finance", "business", "web-app"],
+  "author": "OpenHands",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
